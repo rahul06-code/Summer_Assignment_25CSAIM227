@@ -17,14 +17,16 @@ int main() {
 
     for(int i = 0; i < size; i++) { 
         int duplicate = 0 ;
+        int currentElement = arr[i];
+
         for(int j = 0; j < Uniquesize; j++) { 
-            if(arr[i] == arr[j]) { 
+            if(currentElement== arr[j]) { 
                 duplicate = 1 ; 
                 break ; 
             } 
         } 
         if(duplicate == 0) { 
-            arr[Uniquesize] = arr[i] ; 
+            arr[Uniquesize] = currentElement ; 
             Uniquesize++ ; 
         } 
     } 
