@@ -5,8 +5,8 @@ int main(){
     char str[100];
 
     cout << "Enter a string in lowercase : ";
-    cin >> str ;
-
+    cin.getline(str, 100); 
+    
     for (int i = 0; str[i] != '\0'; i++) {
 
         if (str[i] >= 'a' && str[i] <= 'z') {

@@ -6,8 +6,8 @@ int main(){
     int length = 0;
 
     cout << "Enter a string : ";
-    cin >> str;
-
+    cin.getline(str, 100);
+    
     while (str[length] != '\0'){
         length++;
     }
