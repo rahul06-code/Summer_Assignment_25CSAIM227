@@ -2,64 +2,37 @@
 using namespace std;
 
 int main(){
-    int roll[10], n, search, i;
-    string name[10];
-    float marks[10];
-    int choice;
+    int rollNo[50], n = 0, choice;
+    string name[50];
+    float marks[50];
 
-    cout << "Enter number of students : ";
-    cin >> n;
-
-    for(i = 0; i < n; i++){
-        cout << "\nEnter detail of Student " << i + 1 << endl;
-        cout << "Roll No : ";
-        cin >> roll[i];
-
-        cout << "Name : ";
-        cin >> name[i];
-
-        cout << "Marks : ";
-        cin >> marks[i];
-    }
-    
     do{
-        cout << "\n------ Student Record Management ------";
-        cout << "\n1. Display All Students ";
-        cout << "\n2. Search Student ";
-        cout << "\n3. Exit ";
-        cout << "\nEnter your choice : ";
+        cout << "\nStudent Record Menu:\n";
+        cout << "1. Add Student\n";
+        cout << "2. Display Students\n";
+        cout << "3. Exit\n";
+        cout << "Enter choice : ";
         cin >> choice;
 
-        if(choice == 1){
-            cout << "\nStudent Records\n";
-            for(i = 0; i < n; i++){
-                cout << "\nRoll No : " << roll[i];
-                cout << "\nName    : " << name[i];
-                cout << "\nMarks   : " << marks[i] << endl;
-            }
-        } else if(choice == 2){
-            cout << "Enter Roll Number to search : ";
-            cin >> search;
+        if(choice == 1) {
+            cout << "Enter Roll Number : ";
+            cin >> rollNo[n];
 
-            bool found = false;
+            cout << "Enter Student Name : ";
+            cin >> ws;
+            getline(cin, name[n]);
 
-            for(i = 0; i < n; i++){
-                if(roll[i] == search){
-                    cout << "\nStudent Found ";
-                    cout << "\nRoll No : " << roll[i];
-                    cout << "\nName    : " << name[i];
-                    cout << "\nMarks   : " << marks[i] << endl;
-                    found = true;
-                }
+            cout << "Enter Marks: ";
+            cin >> marks[n];
+
+            n++;
+        }else if(choice == 2) {
+            for(int i = 0; i < n; i++) {
+                cout << "\nRoll Number : " << rollNo[i];
+                cout << "\nName : " << name[i];
+                cout << "\nMarks : " << marks[i] << endl;
             }
-            if(found == false){
-                cout << "Student not found " << endl;
-            }
-        } else if(choice == 3){
-            cout << "Thank You " << endl;
-        } else{
-            cout << "Invalid Choice " << endl;
         }
-    }while(choice != 3);
+    } while(choice != 3);
     return 0;
 }

@@ -2,73 +2,37 @@
 using namespace std;
 
 int main(){
-    int id[10], n, choice, search, i;
-    string name[10], department[10];
-    float salary[10];
+    int empId[50], n = 0, choice;
+    string name[50];
+    float salary[50];
 
-    cout << "Enter number of employees : ";
-    cin >> n;
-
-    for(i = 0; i < n; i++){
-        cout << "\nEnter details of Employee " << i + 1 << endl;
-
-        cout << "Employee ID : ";
-        cin >> id[i];
-
-        cout << "Name : ";
-        cin >> name[i];
-
-        cout << "Department : ";
-        cin >> department[i];
-
-        cout << "Salary : ";
-        cin >> salary[i];
-    }
-    do{
-        cout << "\n===== Employee Management System =====";
-        cout << "\n1. Display All Employees ";
-        cout << "\n2. Search Employee ";
-        cout << "\n3. Exit ";
-        cout << "\nEnter your choice : ";
+    do {
+        cout << "\nSalary Management Menu:\n";
+        cout << "1. Add Employee\n";
+        cout << "2. Display Salary\n";
+        cout << "3. Exit\n";
+        cout << "Enter choice: ";
         cin >> choice;
 
-        if(choice == 1){
-            cout << "\nEmployee Details\n";
-
-            for(i = 0; i < n; i++){
-                cout << "\nEmployee ID : " << id[i];
-                cout << "\nName        : " << name[i];
-                cout << "\nDepartment  : " << department[i];
-                cout << "\nSalary      : " << salary[i] << endl;
-            }
-        }
-        else if(choice == 2){
+        if(choice == 1) {
             cout << "Enter Employee ID : ";
-            cin >> search;
+            cin >> empId[n];
 
-            bool found = false;
+            cout << "Enter Employee Name : ";
+            cin >> ws;
+            getline(cin, name[n]);
 
-            for(i = 0; i < n; i++){
-                if(id[i] == search){
-                    cout << "\nEmployee Found ";
-                    cout << "\nEmployee ID : " << id[i];
-                    cout << "\nName        : " << name[i];
-                    cout << "\nDepartment  : " << department[i];
-                    cout << "\nSalary      : " << salary[i] << endl;
+            cout << "Enter Salary : ";
+            cin >> salary[n];
 
-                    found = true;
-                }
+            n++;
+        }else if(choice == 2) {
+            for(int i = 0; i < n; i++) {
+                cout << "\nEmployee ID : " << empId[i];
+                cout << "\nName : " << name[i];
+                cout << "\nSalary : " << salary[i] << endl;
             }
-
-            if(found == false){
-                cout << "Employee not found " << endl;
-            }
-        }else if(choice == 3){
-            cout << "Program Ended " << endl;
-        }else{
-            cout << "Invalid Choice " << endl;
         }
-
     } while(choice != 3);
     return 0;
 }
